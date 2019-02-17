@@ -467,7 +467,7 @@ def printSelfie(printFlag):
         imageToPrint.save("PrintingTemp/" + "printthis.jpg")
         conn.printFile('zj-58', "PrintingTemp/" + "printthis.jpg",'Python_Status_print' ,{})
 
-        command = '/home/pi/Dropbox-Uploader/dropbox_uploader.sh upload /home/pi/Desktop/SelfieBot/CapturedImages/*.jpg /SelfieBot/'
+        command = '/home/pi/Dropbox-Uploader/dropbox_uploader.sh upload ./CapturedImages/*.jpg /'
         os.system(command)
         os.system('mv ./CapturedImages/*.jpg ~/SelfieBotBackups')
         os.system('rm ./ProcessedImages/*.jpg')
