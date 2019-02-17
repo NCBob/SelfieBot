@@ -469,8 +469,8 @@ def printSelfie(printFlag):
 
         command = '/home/pi/Dropbox-Uploader/dropbox_uploader.sh upload /home/pi/Desktop/SelfieBot/CapturedImages/*.jpg /SelfieBot/'
         os.system(command)
-        os.system('mv /home/pi/Desktop/SelfieBot/CapturedImages/*.jpg /home/pi/Desktop/SelfieBot/backups')
-
+        os.system('mv ./CapturedImages/*.jpg ~/SelfieBotBackups')
+        os.system('rm ./ProcessedImages/*.jpg')
         setExpression(Expression.PRINTGOING)
 
         
