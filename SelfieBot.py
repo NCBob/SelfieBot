@@ -347,17 +347,11 @@ def captureImage():
     global captureSoundSeq
 
     if(captureSoundSeq == 1):
-        soundWait = sdInit.play()
-        while soundWait.get_busy():
-            pygame.time.delay(50)
+        sdInit.play()
     if(captureSoundSeq == 2):
-        soundWait = sdConf.play()
-        while soundWait.get_busy():
-            pygame.time.delay(50)
+        sdConf.play()
     if(captureSoundSeq == 3):
-        soundWait = sdBegin.play()
-        while soundWait.get_busy():
-            pygame.time.delay(50)
+        sdBegin.play()
     
     captureSoundSeq = captureSoundSeq + 1
     if(captureSoundSeq > 3):
@@ -387,11 +381,7 @@ def captureImage():
         
         if shutterButton.is_pressed:
             pygame.image.save(display, ("CapturedImages/" + photoFileName))
-            pygame.mixer.music.load('Sounds/shutter.wav')
-            pygame.mixer.music.play()
-            while pygame.mixer.music.get_busy():
-                pygame.time.delay(50)
-
+            shutterSound.play()
             flashFrame = pygame.Surface(lastScreen.get_size())
             flashFrame = flashFrame.convert()
             pygame.draw.rect(display, (255,255,255), (0,0, 800,480))
@@ -448,13 +438,13 @@ def printSelfie(printFlag):
     global printSoundSeq
     if(printFlag != False):
         if(printSoundSeq == 1):
-            soundWait = printBig.play()
+            printBig.play()
         if(printSoundSeq == 4):
-            soundWait = printKon.play()
+            printKon.play()
         if(printSoundSeq == 3):
-            soundWait = printPoop.play()
+            printPoop.play()
         if(printSoundSeq == 2):
-            soundWait = printDot.play()
+            printDot.play()
             
         printSoundSeq = printSoundSeq + 1
         if (printSoundSeq > 4):
@@ -522,25 +512,15 @@ def setExpression(mode):
                 #PLAY RANDOM SOUND
                 randSound = random.randint(1,5)
                 if(randSound == 1):
-                    soundWait = miscBerp.play()
-                    while soundWait.get_busy():
-                        pygame.time.delay(50)
+                    miscBerp.play()
                 if (randSound == 2):
-                    soundWait = miscHarro.play()
-                    while soundWait.get_busy():
-                        pygame.time.delay(50)
+                    miscHarro.play()
                 if (randSound == 3):
-                    soundWait = miscQ.play()
-                    while soundWait.get_busy():
-                        pygame.time.delay(50)
+                    miscQ.play()
                 if (randSound == 4):
-                    soundWait = miscExit.play()
-                    while soundWait.get_busy():
-                        pygame.time.delay(50)
+                    miscExit.play()
                 if (randSound == 5):
-                    soundWait = miscEllo.play()
-                    while soundWait.get_busy():
-                        pygame.time.delay(50)
+                    miscEllo.play()
                     
                 time.sleep(1.5) #how long blink stays on-screen
                 lastBlinkTime = time.time()
@@ -562,24 +542,15 @@ def setExpression(mode):
                 if( (randWildCard > 90) & (randWildCard < 99) ):
                     display.blit(f_LaughBig,(0,0))
                     pygame.display.flip()
-                    soundWait = laughCheeky.play()
-                    while soundWait.get_busy():
-                        pygame.time.delay(50)
-
+                    laughCheeky.play()
                 if( (randWildCard > 80) & (randWildCard < 91) ):
                     display.blit(f_Yawn,(0,0))
                     pygame.display.flip()
-                    soundWait = yawnBig.play()
-                    while soundWait.get_busy():
-                        pygame.time.delay(50)
-
+                    yawnBig.play()
                 if( (randWildCard > 60) & (randWildCard < 65) ):
                     display.blit(f_Oh,(0,0))
                     pygame.display.flip()
-                    soundWait = miscBerp.play()
-                    while soundWait.get_busy():
-                        pygame.time.delay(50)
-
+                    miscBerp.play()
                 if( (randWildCard > 0) & (randWildCard < 55) ):
                     display.blit(f_Excited,(0,0))
                     pygame.display.flip()
@@ -661,10 +632,8 @@ def setExpression(mode):
     # ----------------------------------------------------- LAUGHING ----------------------------
     
     if(mode==Expression.LAUGHING):
-            soundWait = laughQuirk.play()
-            while soundWait.get_busy():
-                pygame.time.delay(50)
-
+            laughQuirk.play()
+            
             t_end = time.time() + 2 #how long to show laugh flipper
             while time.time() < t_end:
            
@@ -686,9 +655,7 @@ def setExpression(mode):
         
         while isFaceDown:
            
-            soundWait = sdInit.play()
-            while soundWait.get_busy():
-                pygame.time.delay(50)
+            sdInit.play()
             display.blit(f_Hmmm,(0,0))
             pygame.display.flip()
             time.sleep(2)
