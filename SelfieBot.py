@@ -439,15 +439,13 @@ def printSelfie(printFlag):
     global printSoundSeq
     if(printFlag != False):
         if(printSoundSeq == 1):
-            player = subprocess.Popen(["mplayer", "'Sounds/Printing/bigPoopPrint.wav'", "-ss", "30"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
+            printBig.play()
         if(printSoundSeq == 4):
             printKon.play()
         if(printSoundSeq == 3):
             printPoop.play()
         if(printSoundSeq == 2):
             printDot.play()
-            
         printSoundSeq = printSoundSeq + 1
         if (printSoundSeq > 4):
             printSoundSeq = 1
@@ -465,7 +463,6 @@ def printSelfie(printFlag):
         os.system('mv ./CapturedImages/*.jpg ~/SelfieBotBackups')
         os.system('rm ./ProcessedImages/*.jpg')
         setExpression(Expression.PRINTGOING)
-        player.stdin.write("q")
 
         
             
