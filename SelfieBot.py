@@ -35,6 +35,7 @@ import sys
 import os
 import random
 from enum import Enum
+import subprocess
 
 from datetime import datetime
 import time
@@ -438,7 +439,8 @@ def printSelfie(printFlag):
     global printSoundSeq
     if(printFlag != False):
         if(printSoundSeq == 1):
-            printBig.play()
+            player = subprocess.Popen(["mplayer", "'Sounds/Printing/bigPoopPrint.wav'", "-ss", "30"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
         if(printSoundSeq == 4):
             printKon.play()
         if(printSoundSeq == 3):
@@ -463,6 +465,7 @@ def printSelfie(printFlag):
         os.system('mv ./CapturedImages/*.jpg ~/SelfieBotBackups')
         os.system('rm ./ProcessedImages/*.jpg')
         setExpression(Expression.PRINTGOING)
+        player.stdin.write("q")
 
         
             
