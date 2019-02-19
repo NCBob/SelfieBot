@@ -752,7 +752,7 @@ while appRunning == True:
             pygame.quit()
             break
         if shutdownButton.is_pressed:
-            os.system("sudo shutdown -h")
+            os.system("sudo shutdown -h now")
             break
         # Switch to camera mode if face is showing, and someone presses button
         if (botMode == BotMode.FACE) & shutterButton.is_pressed:
