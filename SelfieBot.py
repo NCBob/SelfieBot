@@ -387,8 +387,9 @@ def captureImage():
         
         if shutterButton.is_pressed:
             pygame.image.save(display, ("CapturedImages/" + photoFileName))
-            soundWait = shutterSound.play()
-            while soundWait.get_busy():
+            pygame.mixer.music.load('Sounds/shutter.wav')
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
                 pygame.time.delay(50)
 
             flashFrame = pygame.Surface(lastScreen.get_size())
