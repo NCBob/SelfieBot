@@ -291,8 +291,8 @@ miscQ.set_volume(1.0)
 
 ## ---------------------------------------------------------------------------------
 
-sleeping = pygame.mixer.Sound('Sounds/raw/sleeping/chu_sleeping_02.wav')
-sleepingSnoring = pygame.mixer.Sound('Sounds/raw/sleeping/shu_sleeping01.wav')
+sleeping = pygame.mixer.Sound('Sounds/sleep/sleeping.wav')
+sleepingSnoring = pygame.mixer.Sound('Sounds/sleep/snore.wav')
 
 ## ---------------------------------------------------------------------------------
 
