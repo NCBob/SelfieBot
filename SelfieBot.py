@@ -706,8 +706,10 @@ def setExpression(mode):
             pygame.display.flip()
             time.sleep(.2)
 
-            sleeping.play()
-
+            soundWait = sleeping.play()
+            while soundWait.get_busy():
+                pygame.time.delay(100)
+                
             #check the accel
             imuData = adxl345.getAxes(True)
             #print ("   x = %.3fG" % ( imuData['x'] ))
