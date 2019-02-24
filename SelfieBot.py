@@ -291,6 +291,11 @@ miscQ.set_volume(1.0)
 
 ## ---------------------------------------------------------------------------------
 
+sleeping = pygame.mixer.Sound('Sounds/raw/sleeping/chu_sleeping_02.wav')
+sleepingSnoring = pygame.mixer.Sound('Sounds/raw/sleeping/shu_sleeping01.wav')
+
+## ---------------------------------------------------------------------------------
+
 yawnBig = pygame.mixer.Sound('Sounds/yawns/bigYawn.wav')
 yawnBig.set_volume(1.0)
 
@@ -699,6 +704,8 @@ def setExpression(mode):
             display.blit(print62,(0,0))
             pygame.display.flip()
             time.sleep(.2)
+
+            sleeping.play()
 
             #check the accel
             imuData = adxl345.getAxes(True)
