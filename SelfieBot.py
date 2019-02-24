@@ -382,9 +382,7 @@ def captureImage():
         
         if shutterButton.is_pressed:
             pygame.image.save(display, ("CapturedImages/" + photoFileName))
-            soundWait = shutterSound.play()
-            while soundWait.get_busy():
-                pygame.time.delay(100)
+            shutterSound.play()
             flashFrame = pygame.Surface(lastScreen.get_size())
             flashFrame = flashFrame.convert()
             pygame.draw.rect(display, (255,255,255), (0,0, 800,480))
