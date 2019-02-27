@@ -291,9 +291,11 @@ miscQ.set_volume(1.0)
 
 ## ---------------------------------------------------------------------------------
 
-sleeping = pygame.mixer.Sound('Sounds/sleep/sleeping.wav')
-sleeping.set_volume(0.5)
-#sleepingSnoring = pygame.mixer.Sound('Sounds/sleep/snore.wav')
+sleeping1 = pygame.mixer.Sound('Sounds/sleep/sleeping1.wav')
+sleeping1.set_volume(1.0)
+sleeping2 = pygame.mixer.Sound('Sounds/sleep/sleeping2.wav')
+sleeping2.set_volume(1.0)
+currSleepSound = 0
 
 ## ---------------------------------------------------------------------------------
 
@@ -705,16 +707,25 @@ def setExpression(mode):
             display.blit(print62,(0,0))
             pygame.display.flip()
             time.sleep(.2)
+            
+            if currSleepSound == 0:
+                sleepChannel = sleeping1.play()
+                currSleepSound = 1
+            elif currSleepSound == 1:
+                if sleepChannel.get_busy == False:
+                    currSleepSound = 2
+                    sleepChannel = sleeping2.play()
+            else:
+                if sleepChannel.get_busy == False:
+                    currSleepSound = 1
+                    sleepChannel = sleeping1.play()
 
-            soundWait = sleeping.play()
-            while soundWait.get_busy():
-                pygame.time.delay(100)
-                
             #check the accel
             imuData = adxl345.getAxes(True)
             #print ("   x = %.3fG" % ( imuData['x'] ))
             if(imuData['z'] > sleepAngle):
                 isSleeping = False
+                sleeping1.fadeout(1000)
                 lastBlinkTime = time.time()
                 nextSample = time.time()
 
