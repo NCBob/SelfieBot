@@ -726,7 +726,7 @@ def setExpression(mode):
             #print ("   x = %.3fG" % ( imuData['x'] ))
             if(imuData['z'] > sleepAngle):
                 isSleeping = False
-                currSleepSound.fadeout(1000)
+                sleepChannel.fadeout(1000)
                 lastBlinkTime = time.time()
                 nextSample = time.time()
 
