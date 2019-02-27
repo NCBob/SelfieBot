@@ -691,6 +691,7 @@ def setExpression(mode):
         display.blit(f_Oh,(0,0))
         pygame.display.flip()
         time.sleep(1)
+        currSleepSound = 0
         
         while isSleeping:
            
