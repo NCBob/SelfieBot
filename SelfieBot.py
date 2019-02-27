@@ -692,7 +692,7 @@ def setExpression(mode):
         pygame.display.flip()
         time.sleep(1)
         currSleepSound = 0
-        
+
         while isSleeping:
            
 
@@ -726,7 +726,7 @@ def setExpression(mode):
             #print ("   x = %.3fG" % ( imuData['x'] ))
             if(imuData['z'] > sleepAngle):
                 isSleeping = False
-                sleeping1.fadeout(1000)
+                currSleepSound.fadeout(1000)
                 lastBlinkTime = time.time()
                 nextSample = time.time()
 
