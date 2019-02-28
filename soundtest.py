@@ -23,8 +23,6 @@ from pygame.locals import *
 
 import numpy as N
 
-from adxl345 import ADXL345
-
 while isSleeping:
     
 
