@@ -26,6 +26,7 @@ import numpy as N
 pygame.mixer.pre_init(44100, 16, 2, 4096) #frequency, size, channels, buffersize
 pygame.init()
 pygame.mixer.init()
+screen=pygame.display.set_mode((400,400),0,32) 
 
 isSleeping = True
 currSleepSound = 0
