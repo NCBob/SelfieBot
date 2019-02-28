@@ -40,7 +40,8 @@ count = 0
 
 while isSleeping:
   pygame.time.delay(1000)
-  print("isSleeping Loop: " + count)
+  print("isSleeping Loop: ")
+  print(count)
   if currSleepSound == 0:
     print("currSleepSound == 0")
     sleepChannel = sleeping1.play()
