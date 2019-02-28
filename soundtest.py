@@ -23,6 +23,11 @@ from pygame.locals import *
 
 import numpy as N
 
+pygame.mixer.pre_init(44100, 16, 2, 4096) #frequency, size, channels, buffersize
+pygame.init()
+pygame.camera.init()
+pygame.mixer.init()
+
 isSleeping = True
 currSleepSound = 0
 
