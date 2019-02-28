@@ -8,8 +8,6 @@ from datetime import datetime
 import time
 from time import sleep
 
-import cups
-
 import PIL
 from PIL import Image
 from PIL import ImageDraw
