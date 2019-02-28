@@ -36,6 +36,7 @@ sleeping1 = pygame.mixer.Sound('Sounds/sleep/sleeping1.wav')
 sleeping1.set_volume(1.0)
 sleeping2 = pygame.mixer.Sound('Sounds/sleep/sleeping2.wav')
 sleeping2.set_volume(1.0)
+sleeping1.play()
 count = 0
 
 while isSleeping:
