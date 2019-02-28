@@ -23,22 +23,17 @@ from pygame.locals import *
 
 import numpy as N
 
+isSleeping = True
+currSleepSound = 0
+
+sleeping1 = pygame.mixer.Sound('Sounds/sleep/sleeping1.wav')
+sleeping1.set_volume(1.0)
+sleeping2 = pygame.mixer.Sound('Sounds/sleep/sleeping2.wav')
+sleeping2.set_volume(1.0)
+count = 0
+
 while isSleeping:
-    
-
-    # Sleepy ZZzzzzzz face
-    display.blit(print5,(0,0))
-    pygame.display.flip()
-    time.sleep(.2)
-
-    display.blit(print6,(0,0))
-    pygame.display.flip()
-    time.sleep(.2)
-
-    display.blit(print62,(0,0))
-    pygame.display.flip()
-    time.sleep(.2)
-    
+        
     if currSleepSound == 0:
         sleepChannel = sleeping1.play()
         currSleepSound = 1
@@ -51,11 +46,10 @@ while isSleeping:
             currSleepSound = 1
             sleepChannel = sleeping1.play()
 
-    #check the accel
-    imuData = adxl345.getAxes(True)
-    #print ("   x = %.3fG" % ( imuData['x'] ))
-    if(imuData['z'] > sleepAngle):
+    if(count > 3):
         isSleeping = False
         sleepChannel.fadeout(1000)
         lastBlinkTime = time.time()
         nextSample = time.time()
+    else:
+      count += 1
