@@ -34,27 +34,28 @@ sleeping2.set_volume(1.0)
 count = 0
 
 while isSleeping:
-    print("isSleeping Loop: " + count)
-    if currSleepSound == 0:
-      print("currSleepSound == 0")
-      sleepChannel = sleeping1.play()
-      currSleepSound = 1
-    elif currSleepSound == 1:
-      print("currSleepSound == 1")
-      if sleepChannel.get_busy == False:
-        print("sleepChannel.get_busy == False")
-        currSleepSound = 2
-        sleepChannel = sleeping2.play()
-    else:
-      print("else")
-      if sleepChannel.get_busy == False:
-      currSleepSound = 1
-      sleepChannel = sleeping1.play()
+  pygame.time.delay(1000)
+  print("isSleeping Loop: " + count)
+  if currSleepSound == 0:
+    print("currSleepSound == 0")
+    sleepChannel = sleeping1.play()
+    currSleepSound = 1
+  elif currSleepSound == 1:
+    print("currSleepSound == 1")
+    if sleepChannel.get_busy == False:
+      print("sleepChannel.get_busy == False")
+      currSleepSound = 2
+      sleepChannel = sleeping2.play()
+  else:
+    print("else")
+    if sleepChannel.get_busy == False:
+    currSleepSound = 1
+    sleepChannel = sleeping1.play()
 
-    if(count > 3):
-      isSleeping = False
-      sleepChannel.fadeout(1000)
-      lastBlinkTime = time.time()
-      nextSample = time.time()
-    else:
-      count += 1
+  if(count > 3):
+    isSleeping = False
+    sleepChannel.fadeout(1000)
+    lastBlinkTime = time.time()
+    nextSample = time.time()
+  else:
+    count += 1
