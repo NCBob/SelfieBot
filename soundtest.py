@@ -61,7 +61,5 @@ while isSleeping:
   if(count > 3):
     isSleeping = False
     sleepChannel.fadeout(1000)
-    lastBlinkTime = time.time()
-    nextSample = time.time()
   else:
     count += 1
