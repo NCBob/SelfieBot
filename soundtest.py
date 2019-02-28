@@ -49,8 +49,8 @@ while isSleeping:
   else:
     print("else")
     if sleepChannel.get_busy == False:
-    currSleepSound = 1
-    sleepChannel = sleeping1.play()
+      currSleepSound = 1
+      sleepChannel = sleeping1.play()
 
   if(count > 3):
     isSleeping = False
